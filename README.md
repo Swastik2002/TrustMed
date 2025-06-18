@@ -59,14 +59,11 @@ TrustMed/
 
 ---
 
-📦 Future Enhancements
+### 📦 Future Enhancements
 Full migration to PostgreSQL
 Add authentication (JWT/session)
 Notifications (email/SMS)
 Responsive mobile design improvements
 
-📄 License
-MIT License. See LICENSE file for details.
-
-👨‍💻 Author
+### 👨‍💻 Author
 Built with ❤️ by Swastik Garg
