@@ -60,9 +60,9 @@ TrustMed/
 ---
 
 ### 📦 Future Enhancements
-Full migration to PostgreSQL
-Add authentication (JWT/session)
-Notifications (email/SMS)
+Full migration to PostgreSQL,
+Add authentication (JWT/session),
+Notifications (email/SMS) and 
 Responsive mobile design improvements
 
 ### 👨‍💻 Author
