@@ -7,7 +7,7 @@
 ## 📍 Live Demo
 
 🌐 [Frontend (Vercel)](https://swastik-trustmed.vercel.app)  
-🌐 [Backend (Railway)](https://trustmed.up.railway.app)
+🌐 [Backend (Railway)](https://trustmed.onrender.com/)
 
 ---
 
