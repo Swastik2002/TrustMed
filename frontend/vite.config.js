@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://trustmed.up.railway.app',
+        target: 'https://trustmed.onrender.com',
         changeOrigin: true,
       },
     },

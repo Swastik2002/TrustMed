@@ -7,36 +7,36 @@ const upload = require('./middleware/upload');
 
 // Initialize express application
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
+
+// quick health endpoint for Render
+app.get('/health', (req, res) => res.send('ok'));
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : '*',
+    credentials: true
+}));
 app.use(express.json());
 
 // Setup multer for file uploads
-// Ensure uploads folder exists & serve static files
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
+// Ensure uploads folder exists & serve static files (use persistent disk if present)
+const DATA_DIR = process.env.DATA_DIR || '/var/data';
+const uploadsDir = process.env.UPLOADS_DIR || path.join(DATA_DIR, 'uploads');
+if (!fs.existsSync(uploadsDir)) 
+  fs.mkdirSync(uploadsDir);
 app.use('/uploads', express.static(uploadsDir));
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, uploadsDir);
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, Date.now() + path.extname(file.originalname));
-//   }
-// });
-
-// const upload = multer({ storage });
-
 // Database setup
-const dbPath = path.join(__dirname, 'database.db');
+// const dbPath = path.join(__dirname, 'database.db'); 
+const dbPath = process.env.DATABASE_FILE || path.join(DATA_DIR, 'database.db');
+// Make sure parent dir for DB exists
+try { fs.mkdirSync(path.dirname(dbPath), { recursive: true }); } catch {}
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('Database connection error:', err.message);
   } else {
-    console.log('Connected to the SQLite database');
+    console.log('Connected to the SQLite database at:', dbPath);
     // initializeDatabase();
   } 
 });

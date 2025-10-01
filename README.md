@@ -7,7 +7,7 @@
 ## 📍 Live Demo
 
 🌐 [Frontend (Vercel)](https://swastik-trustmed.vercel.app)  
-🌐 [Backend (Railway)](https://trustmed.up.railway.app)
+🌐 [Backend (Render)](https://trustmed.onrender.com)
 
 ---
 
@@ -17,7 +17,7 @@
 - **Backend:** Node.js, Express.js
 - **Database:** SQLite (can be migrated to PostgreSQL)
 - **File Uploads:** Multer
-- **Hosting:** Railway (backend), Vercel (frontend)
+- **Hosting:** Render (backend), Vercel (frontend)
 
 ---
 
